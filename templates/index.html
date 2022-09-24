@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Rendering Through Flask</h1>
+    <button class="talk">Clicked</button>
+    <h1>Hello moto</h1>
+    <div class="container">
+        <form action="/" method="post" >
+            <input type="text" id="userInput" name="userInput" placeholder="Enter Your message Here">
+            <!-- <input type="submit" value="Submit"> -->
+            <button onclick="funcName()">Submit</button>
+            <div class="message-box">
+                <span id="message"></span>
+            </div>
+        </form>
+    </div>
+    <!-- <script src="{{ url_for('static', filename='scripts/app.js')}}"></script> -->
+    <script>
+        // var url = 'http://127.0.0.1:5000/'
+        async function funcName(){
+            let data = "{{response}}";
+            document.getElementById('message').innerHTML = data;
+            console.log(data);
+            }
+
+    </script>
+</body>
+</html>
+<!-- no changes -->

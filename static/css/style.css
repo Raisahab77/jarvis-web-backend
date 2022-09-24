@@ -1,0 +1,10 @@
+body{
+    background-color: red;
+}
+
+.container{
+    width: 60%;
+    height: 80vh;
+    background-color: aqua;
+    margin: auto;
+}
