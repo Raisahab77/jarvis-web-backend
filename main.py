@@ -10,16 +10,16 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 @app.route('/', methods=["GET", "POST"])
 def sendData():
     if request.method == "POST":
-        print("Getting post request")
-        print(request.data)
+        print("Getting post request")  
         message = request.data
         message = message.decode()
+        message = message.lower()
         response = getResponse(message)
         print(f"getting response from getresponse {response}")
         return response
 
     print("After Send Data")
-    return "Hello from jarvis"
+    return "Hello from Ritu"
 
 
     #               ___

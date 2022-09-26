@@ -31,14 +31,14 @@ set timer
 ################################################## Main function #############################################
 
 def getResponse(query):
-    print(query)
+
     if 'wikipedia' in query :
-        # speak('searching wikipedia.....')
         query = query.replace("wikipedia","")
         result = wikipedia.summary(query, sentence=2)
         return result
-    elif 'hey' in query or 'hi' in query or 'hello' in query:
-        response = ['heyyyaa','hiiiii','hielloooo']
+
+    elif isContain(query,["hey","hi","hello"]):
+        response = ['Hello Boss','Hi','hey boss']
         response = random.choice(response)
         return response
 
@@ -57,8 +57,8 @@ def getResponse(query):
     elif 'my birthday' in query:
         myBirthday()
 
-    elif isContain(query,["exit","bye","goodbye","sleep"]) :
-        bye()
+    # elif isContain(query,["exit","bye","goodbye","sleep"]) :
+    #     bye()
     
     elif isContain(query,["timer"]):
         print("enterd in timer")
@@ -74,8 +74,8 @@ def getResponse(query):
     if 'greet me' in query or 'wish me' in query:
         return greet()
 
-    elif 'exit' in query or 'bye' in query or 'goodbye' in query :
-        quit()
+    # elif 'exit' in query or 'bye' in query or 'goodbye' in query :
+    #     quit()
 
     elif 'set alarm' in query and 'am' in query:
         t1 = Thread(target=am,args=(query,))
