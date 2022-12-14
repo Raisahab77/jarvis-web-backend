@@ -1,9 +1,5 @@
 import random
 from home import *
-# from calculator import *
-# from conversion import *
-# from alarm import *
-# from threading import Thread
 
 """
 greet
