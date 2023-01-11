@@ -5,14 +5,14 @@ from jarvisMain import *
 from flask_cors import CORS
 import sqlite3
 from array import array
-import pymongo
+# import pymongo
 import json
 from bson import json_util
 
-myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+# myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 
-mydb = myclient["jarvis-chat"]
-mycol = mydb["chats"]
+# mydb = myclient["jarvis-chat"]
+# mycol = mydb["chats"]
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
