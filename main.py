@@ -34,14 +34,14 @@ def sendData():
             print("************************** form *******************", form)
             query = form['query'];
             response = getResponse(query)
-            print(f"getting response from getresponse {response}")
-            return response
 
         else:
             form = request.data.decode()
             print("************************** form *******************", form)
-   
-        return "response"
+
+        print(f"getting response from getresponse {response}")
+        return response
+
 
     if request.method =="GET":
         x = list(mycol.find({}))
@@ -54,12 +54,12 @@ def sendData():
     # print("After Send Data")
     # return "Hello from Ritu"
 
-# def sendAllMessage():
-#     conn = sqlite3.connect('message.db')
-#     cursor = conn.cursor()
-#     allMessage = cursor.execute('''SELECT * FROM MESSAGE''')
-#     # conn.commit()
-#     return allMessage
+def sendAllMessage():
+    conn = sqlite3.connect('message.db')
+    cursor = conn.cursor()
+    allMessage = cursor.execute('''SELECT * FROM MESSAGE''')
+    # conn.commit()
+    return allMessage
 
 def insertMessage(message,sendby):
     conn = sqlite3.connect('message.db')
