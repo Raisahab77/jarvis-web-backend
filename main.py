@@ -20,20 +20,28 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 @app.route('/', methods=["GET", "POST"])
 def sendData():
     if request.method == "POST":
-        print("Getting post request")  
-        message = request.data
-        print(message)
-        message = message.decode()
-        message = message.lower()
-        response = getResponse(message)
-        # insertMessage(message,'me')
-        # insertMessage(response,'bot')
-        mydict = { "message": message, "sendby": 'me' }
-        x = mycol.insert_one(mydict)
-        mydict = { "message": response, "sendby": 'bot' }
-        x = mycol.insert_one(mydict)
-        print(f"getting response from getresponse {response}")
-        return response
+        mimetype = request.mimetype
+        print(mimetype)
+        if mimetype == 'application/x-www-form-urlencoded':
+            print("I am here")
+            print(type(request.form.keys()))
+            print(request.form.keys())
+        elif mimetype == 'multipart/form-data':
+            form = dict(request.form)
+            print("************************** form *******************", form)
+        elif mimetype == 'application/json':
+            form = request.json
+            print("************************** form *******************", form)
+            query = form['query'];
+            response = getResponse(query)
+            print(f"getting response from getresponse {response}")
+            return response
+
+        else:
+            form = request.data.decode()
+            print("************************** form *******************", form)
+   
+        return "response"
 
     if request.method =="GET":
         x = list(mycol.find({}))
