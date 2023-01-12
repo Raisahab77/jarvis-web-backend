@@ -44,12 +44,12 @@ def sendData():
 
 
     if request.method =="GET":
-        x = list(mycol.find({}))
-        x = jsonify(json_util.dumps(x))
-        print(x)
-        print(type(x))
+        # x = list(mycol.find({}))
+        # x = jsonify(json_util.dumps(x))
+        # print(x)
+        # print(type(x))
         # x = str(x)
-        return x
+        return "Success"
 
     # print("After Send Data")
     # return "Hello from Ritu"
